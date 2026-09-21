@@ -93,7 +93,7 @@ def test_division(a: Digit, b: Digit, expected: Digit) -> None:
 )
 def test_division_by_zero(a: Digit, b: Digit) -> None:
         """Test division by zero operation."""
-        with pytest.raises(ValueError) as excinfo:
+        with pytest.raises(ZeroDivisionError) as excinfo:
             Operations.division(a, b)
         assert str(excinfo.value) == "You cannot divide by zero."
 @pytest.mark.parametrize(
