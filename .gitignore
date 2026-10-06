@@ -10,6 +10,8 @@ __pycache__/
 
 # Virtual environment folder
 venv/
+history/
+test_history/
 
 # Distribution / packaging
 .Python
