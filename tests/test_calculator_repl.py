@@ -1,7 +1,7 @@
 from pathlib import Path
 from app.calculator_repl import calculator_repl
 from app.calculator import Calculator
-from tests.tests_calculator import test_save_history
+from tests.test_calculator import test_save_history
 from app.exceptions import OperationError, ValidationError
 def test_calculator_repl_help(monkeypatch, capsys):
     inputs = iter(["help", "stop"])
