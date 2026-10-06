@@ -123,15 +123,17 @@ class Calculator:
                     'operation': str(calculation.operation),
                     'operand1': str(calculation.operand1),
                     'operand2': str(calculation.operand2),
-                    'outcome': str(calculation.outcome) if calculation.outcome is not None else None,
-                    'timestamp': str(calculation.timeOfCalc) if calculation.timeOfCalc is not None else None,
+                    'outcome': str(calculation.outcome) 
+                        if calculation.outcome is not None else None,
+                    'timestamp': str(calculation.timeOfCalc) 
+                        if calculation.timeOfCalc is not None else None,
                 })
 
-                if data:
+            if data:
                     df = pd.DataFrame(data)
                     df.to_csv(self.config.history_file, index=False)
                     logging.info(f"History saved to {self.config.history_file}")
-                else:
+            else:
                     pd.DataFrame(columns=['operation', 'operand1', 'operand2', 'outcome', 'timestamp']).to_csv(self.config.history_file, index=False)
                     logging.info("Empty history saved")
         except Exception as e:
@@ -170,7 +172,7 @@ class Calculator:
                     'timestamp': str(calculation.timeOfCalc) if calculation.timeOfCalc is not None else None,
                 })
             
-            return pd.DataFrame(data)
+         return pd.DataFrame(data)
     def show_history(self) -> None:
         for calculation in self.history:
             print(f"{calculation.operation}({calculation.operand1}, {calculation.operand2}) = {calculation.outcome}")
