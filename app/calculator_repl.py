@@ -30,6 +30,7 @@ def calculator_repl():
                 if input_str == "stop":
                     try:
                         calculator.save_history()
+                        print("Stopping the calculator.")
                     except Exception as e:
                         print(f"History lost: {e}")
                     break
@@ -95,7 +96,7 @@ def calculator_repl():
                         operation = OperationFactory.create_operation(operation_names[input_str])
                         calculator.set_operation(operation)
                         result = calculator.perform_operation(float(operand_a), float(operand_b))
-                        print(f"Result: {result}")
+                        print(f"\nResult: {result}")
                     except (OperationError, ValidationError) as e:
                         print(f"Error: {e}")
                     continue
